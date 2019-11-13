@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestContreller {
+public class TestController {
 
     @Autowired
     private ISysUserService sysUserService;
 
-    @RequestMapping("/find")
-    public SysUser getUser(){
-        return sysUserService.findById(1l);
+    @RequestMapping("/user")
+    public SysUser getUser() {
+        return sysUserService.findById(1L);
     }
-
 }

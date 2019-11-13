@@ -31,7 +31,7 @@
         </commentGenerator>
         <!-- 数据库连接，直接通过${}读取application.properties里的配置 -->
         <jdbcConnection
-                driverClass="com.mysql.jdbc.Driver"
+                driverClass="${spring.datasource.driverClassName}"
                 connectionURL="${spring.datasource.url}"
                 userId="${spring.datasource.username}"
                 password="${spring.datasource.password}"/>

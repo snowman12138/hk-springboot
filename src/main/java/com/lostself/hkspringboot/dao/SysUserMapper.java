@@ -13,4 +13,6 @@ public interface SysUserMapper {
     List<SysUser> selectAll();
 
     int updateByPrimaryKey(SysUser record);
+
+    public SysUser findById(Long id);
 }
