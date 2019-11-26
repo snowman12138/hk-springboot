@@ -1,4 +1,4 @@
-package com.lostself.hkspringboot;
+package com.lostself.hkspringboot.entity;
 
 import jdk.nashorn.internal.objects.annotations.Getter;
 import jdk.nashorn.internal.objects.annotations.Setter;

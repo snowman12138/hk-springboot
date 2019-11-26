@@ -41,14 +41,14 @@
         <!--</jdbcConnection>-->
 
         <!-- 生成POJO对象，并将类放到com.web.springbootmybatis.entity包下 -->
-        <javaModelGenerator targetPackage="com.lostself.hkspringboot.entity" targetProject="src/main/java"></javaModelGenerator>
-        <!-- 生成mapper xml文件，并放到resources下的mapper文件夹下 -->
+        <!--<javaModelGenerator targetPackage="com.lostself.hkspringboot.entity" targetProject="src/main/java"></javaModelGenerator>-->
+         <!--生成mapper xml文件，并放到resources下的mapper文件夹下 -->
         <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources"></sqlMapGenerator>
 
-        <!-- 生成mapper xml对应dao接口，放到com.web.springbootmybatis.dao包下-->
+         <!--生成mapper xml对应dao接口，放到com.web.springbootmybatis.dao包下-->
         <javaClientGenerator targetPackage="com.lostself.hkspringboot.dao" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
 
-        <!-- table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符，我这里的配置表明匹配所有的表 -->
+         <!--table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符，我这里的配置表明匹配所有的表 -->
         <table tableName="sys_user">
             <!-- 是否只生成POJO对象 -->
             <property name="constructorBased" value="false"/>
