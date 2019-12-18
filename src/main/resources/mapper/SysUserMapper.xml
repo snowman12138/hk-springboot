@@ -21,6 +21,15 @@
 		WHERE
 			id=#{id}
 	</select>
-	
-	<select id="findAllByPage"
+
+	<select id="selectAll" resultMap="sysUser">
+		SELECT
+			id ,
+			usercode,
+			username,
+			password,
+			salt,
+			locked
+		FROM sys_user
+	</select>
 </mapper>
