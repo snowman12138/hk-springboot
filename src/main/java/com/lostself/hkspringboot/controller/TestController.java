@@ -22,10 +22,6 @@ public class TestController {
     public SysUser getUser() {
         return sysUserService.findById(1L);
     }
-    @RequestMapping ("/hello")
-    public String hello(){
-        return "hello";
-    }
 
     @Value("${blog.login.name}")
     private String name;
