@@ -1,8 +1,8 @@
 package com.lostself.hkspringboot;
 
-//import org.springframework.boot.builder.SpringApplicationBuilder;
-//import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-//
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
 //public class ServletInitializer extends SpringBootServletInitializer {
 //    public ServletInitializer() {
 //        System.out.println("初始化ServletInitializer");
