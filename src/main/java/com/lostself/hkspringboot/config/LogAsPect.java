@@ -3,10 +3,12 @@ package com.lostself.hkspringboot.config;
 
 import com.lostself.hkspringboot.entity.SysLog;
 import com.lostself.hkspringboot.service.ISysLogService;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MemberSignature;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -23,7 +25,9 @@ import java.util.Date;
  *     @Aspect:这个注解表示将当前类视为一个切面类
  *     @Component：表示将当前类交由Spring管理。
  *     @Pointcut:切点表达式,定义我们的匹配规则，上边我们使用@Pointcut("@annotation(com.web.springbootaoplog.config.Log)")表示匹配带有我们自定义注解的方法。
- *     @Around:环绕通知，可以在目标方法执行前后执行一些操作，以及目标方法抛出异常时执行的操作。*/
+ *     @Around:环绕通知，可以在目标方法执行前后执行一些操作，以及目标方法抛出异常时执行的操作。
+ *     @Before:表示目标方法执行之前执行以下方法的内容*/
+
 
 @Aspect
 @Component
@@ -33,8 +37,12 @@ public class LogAsPect {
 
     @Autowired
     private ISysLogService sysLogService;
+//    表示配有带自定义注解的方法   (匹配规则博客地址：https://www.cnblogs.com/liaojie970/p/7883687.html)
     @Pointcut("@annotation(com.lostself.hkspringboot.config.Log)")
     public void poincut(){}
+
+    @Pointcut("execution(public * com.lostself.hkspringboot.controller..*.*(..))")
+    public void pointcutController(){}
 
     @Around("poincut()")
     public Object around(ProceedingJoinPoint point){
@@ -51,6 +59,16 @@ public class LogAsPect {
         }
         log.info("我在目标方法之后执行！");
         return result;
+    }
+
+    @Before("pointcutController()")
+    public void around2(JoinPoint point){
+
+         //获取方法名
+        String methodNam = point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName();
+        //获取方法参数
+        String params = Arrays.toString(point.getArgs());
+        log.info("get in {} parm: {}" ,methodNam , params);
     }
 
     private void insertLog(ProceedingJoinPoint point, long time) {

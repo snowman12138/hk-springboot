@@ -32,4 +32,5 @@
 			locked
 		FROM sys_user
 	</select>
+
 </mapper>

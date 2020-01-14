@@ -10,4 +10,5 @@ public interface ISysUserService extends IbaseService<SysUser>{
 	SysUser findById(Long id);
 	List<SysUser> findAllByPage(int pagenum,int pagesize);
 	PageInfo<SysUser> findAllByPage2(int pageNum, int pageSize);
+
 }
