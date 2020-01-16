@@ -1,8 +1,24 @@
 package com.lostself.hkspringboot.entity;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
+
 import java.io.Serializable;
 
 public class SysUser implements Serializable {
+
+    public SysUser() {
+    }
+
+    public SysUser(Integer id, String usercode, String username, String password, String salt, String locked) {
+        this.id = id;
+        this.usercode = usercode;
+        this.username = username;
+        this.password = password;
+        this.salt = salt;
+        this.locked = locked;
+    }
+
     private Integer id;
 
     private String usercode;

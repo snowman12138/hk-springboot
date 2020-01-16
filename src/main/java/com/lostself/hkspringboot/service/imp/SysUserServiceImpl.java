@@ -78,12 +78,12 @@ public class SysUserServiceImpl implements ISysUserService{
     }
 
     @Override
-    public List<SysUser> selectAll() {
-        return null;
+    public int updateByPrimaryKey(SysUser entity) {
+        return 0;
     }
 
     @Override
-    public int updateByPrimaryKey(SysUser entity) {
-        return 0;
+    public List<SysUser> selectAll() {
+        return null;
     }
 }

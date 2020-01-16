@@ -33,4 +33,33 @@
 		FROM sys_user
 	</select>
 
+	<insert id="insert">
+		insert into sys_user (
+		id,
+		usercode,
+		username,
+		password,
+		salt,
+		locked)values (#{id},#{usercode},
+		#{username},
+		#{password},
+		#{salt},
+		#{locked})
+
+	</insert>
+
+	<delete id="deleteByPrimaryKey">
+		delete from sys_user where id = #{id}
+
+	</delete>
+
+	<update id="updateByPrimaryKey">
+		update sys_user set id = #{id},
+		usercode = #{usercode},
+		username = #{username},
+		password = #{password},
+		salt = #{salt},
+		locked = #{locked} where id = #{id}
+	</update>
+
 </mapper>
